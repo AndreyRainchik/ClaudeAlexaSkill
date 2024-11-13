@@ -1,0 +1,113 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "userInput",
+              "elicitationRequired": true,
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.userInput"
+              }
+            }
+          ],
+          "name": "APIIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "cancel",
+            "never mind",
+            "forget it"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "help",
+            "help me",
+            "what can I do",
+            "how does this work",
+            "what can I say"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "stop",
+            "exit",
+            "quit"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": [
+            "home",
+            "go home",
+            "start over"
+          ]
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "userInput",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{userInput}"
+              ]
+            }
+          ],
+          "name": "APIIntent",
+          "samples": [
+            "send {userInput}",
+            "call Claude with {userInput}",
+            "process {userInput}",
+            "send to Claude {userInput}",
+            "make a request with {userInput}",
+            "submit {userInput}",
+            "try {userInput}",
+            "Claude {userInput}",
+            "pass {userInput}",
+            "forward {userInput}",
+            "ask Claude {userInput}"
+          ]
+        }
+      ],
+      "types": [],
+      "invocationName": "claude a. i."
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What would you like to ask Claude?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Please tell me what you want to ask."
+          },
+          {
+            "type": "PlainText",
+            "value": "What message should I process?"
+          }
+        ],
+        "id": "Elicit.Slot.1234567890.userInput"
+      }
+    ]
+  }
+}
